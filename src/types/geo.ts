@@ -16,7 +16,7 @@ export interface FeatureProperties {
   LAD13CDO?: string;
   LAD13NM?: string;
   LAD13NMW?: string;
-  region: string;
+  region?: string;
   // You can add other fields here if needed
 }
 

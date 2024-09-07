@@ -7,7 +7,7 @@ import { GeoJSON } from "../../../types/geo";
 import { GeoPermissibleObjects } from "d3";
 
 export default function MapChart() {
-  const plotRef = useRef();
+  const plotRef = useRef<undefined | (SVGSVGElement | HTMLElement)>();
 
   const [featuresArray, setFeaturesArray] = useState<
     undefined | GeoPermissibleObjects
@@ -87,7 +87,7 @@ export default function MapChart() {
       // });
 
       // Append the plot to the div element
-      plotRef.current.append(plot);
+      plotRef.current = plot;
 
       // Clean up the plot when the component unmounts
       return () => {
