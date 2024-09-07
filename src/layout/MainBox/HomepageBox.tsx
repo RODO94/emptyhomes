@@ -3,7 +3,7 @@ import "./HomepageBox.scss";
 export default function HomepageBox() {
   return (
     <>
-      {/* Map Section */}
+      <MapIndex />
       {/* Key Facts Section */}
     </>
   );
