@@ -1,0 +1,6 @@
+@use "./partials/mixins" as *;
+
+p {
+  margin: 0;
+  @include body;
+}
