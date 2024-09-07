@@ -1,0 +1,21 @@
+@use "../../../partials/variables" as *;
+
+.header {
+  display: flex;
+  background-color: $neutral-900;
+  &__wrap {
+    width: 100%;
+    border-radius: 0 0 8px 0;
+    padding: $element-pd--m;
+    display: flex;
+    flex-direction: row;
+    gap: $element-gap--m;
+  }
+  &__txt {
+    color: white;
+    font-size: $body-size;
+    &--platform {
+      font-weight: $bold;
+    }
+  }
+}

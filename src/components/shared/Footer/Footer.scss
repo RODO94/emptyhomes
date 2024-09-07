@@ -1,0 +1,7 @@
+@use "../../../partials/variables" as *;
+
+.footer {
+  padding: $element-pd--l;
+  text-align: center;
+  background-color: $neutral-200;
+}

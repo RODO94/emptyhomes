@@ -15,3 +15,46 @@ $xbold: 800;
 
 // font-family
 $fonts: "Montserrat", system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+/* Primary: Violet Blue */
+$primary-100: #faf2ff;
+$primary-200: #dfbbfe;
+$primary-300: #b980f6;
+$primary-400: #8845e2;
+$primary-500: #4f11ba;
+$primary-600: #320695;
+$primary-700: #1d0170;
+$primary-800: #0f004b;
+$primary-900: #050026;
+
+/* Accent: Ice Climber */
+$accent-100: #f2feff;
+$accent-200: #c2fcff;
+$accent-300: #90fcfa;
+$accent-400: #5df5ea;
+$accent-500: #2ce8cf;
+$accent-600: #0fb897;
+$accent-700: #038766;
+$accent-800: #00573c;
+$accent-900: #002618;
+
+/* Neutral */
+$neutral-100: #fbfafc;
+$neutral-200: #ebe8ed;
+$neutral-300: #dad7dd;
+$neutral-400: #c9c6cd;
+$neutral-500: #b8b5bd;
+$neutral-600: #918f97;
+$neutral-700: #6c6a71;
+$neutral-800: #47454c;
+$neutral-900: #232226;
+
+// Spacings
+
+$element-gap--s: 0.75rem;
+$element-gap--m: 1.15rem;
+$element-gap--l: 1.5rem;
+
+$element-pd--s: 0.25rem 0.5rem;
+$element-pd--m: 0.5rem 1rem;
+$element-pd--l: 1rem 1.5rem;

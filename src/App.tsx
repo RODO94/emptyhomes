@@ -1,10 +1,10 @@
 import "./App.css";
-import LondonGraph from "./components/LondonGraph/LondonGraph";
+import Homepage from "./pages/Homepage/Homepage";
 
 function App() {
   return (
     <main>
-      <LondonGraph />
+      <Homepage />
     </main>
   );
 }
