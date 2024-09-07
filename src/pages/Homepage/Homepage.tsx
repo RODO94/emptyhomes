@@ -6,7 +6,7 @@ export default function Homepage() {
   return (
     <>
       <Header />
-      {/* MAIN CONTENT */}
+
       <Footer />
     </>
   );
