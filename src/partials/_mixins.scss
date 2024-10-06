@@ -1,0 +1,47 @@
+@use "./variables" as *;
+
+@mixin header-1 {
+  font-size: $h1-size;
+  font-weight: $xbold;
+}
+@mixin subheader-1 {
+  @include header-1;
+  font-weight: $subh-weight;
+}
+
+@mixin header-2 {
+  font-size: $h2-size;
+  font-weight: $bold;
+}
+
+@mixin subheader-2 {
+  @include header-2;
+  font-weight: $subh-weight;
+}
+@mixin header-3 {
+  font-size: $h3-size;
+  font-weight: $bold;
+}
+
+@mixin subheader-3 {
+  @include header-3;
+  font-weight: $subh-weight;
+}
+@mixin header-4 {
+  font-size: $h4-size;
+  font-weight: $bold;
+}
+@mixin subheader-4 {
+  @include header-4;
+  font-weight: $subh-weight;
+  color: $neutral-700;
+}
+
+@mixin body {
+  font-size: $body-size;
+}
+
+@mixin button {
+  font-size: $body-size;
+  font-weight: $bold;
+}

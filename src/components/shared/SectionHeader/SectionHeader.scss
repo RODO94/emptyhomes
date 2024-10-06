@@ -1,0 +1,17 @@
+@use "../../../partials/variables" as *;
+@use "../../../partials/mixins" as *;
+
+.sectionheader {
+  display: flex;
+  flex-direction: column;
+  gap: $element-gap--xs;
+  &__head {
+    margin: 0;
+    &--main {
+      @include header-2;
+    }
+    &--sub {
+      @include subheader-4;
+    }
+  }
+}

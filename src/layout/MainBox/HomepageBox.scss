@@ -1,0 +1,11 @@
+@use "../../partials/variables" as *;
+
+.home-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $element-gap--l;
+  margin: 3rem auto;
+  max-width: 750px;
+  width: 100%;
+}

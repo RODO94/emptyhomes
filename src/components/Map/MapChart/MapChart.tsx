@@ -33,13 +33,9 @@ export default function MapChart() {
         };
       });
 
-      console.log(mapArray);
-
       const londonArray = mapArray.filter(
         (authority) => authority.properties.region === "L"
       );
-
-      console.log(londonArray);
 
       setFeaturesArray({
         type: "FeatureCollection",
