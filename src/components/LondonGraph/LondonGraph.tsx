@@ -7,18 +7,6 @@ import londonTopo from "../../data/topo_lad.json";
 import { useBoroughStore } from "../../store";
 import { LondonBoroughs } from "../../types/util";
 
-type EventObject = {
-  color: string;
-  data: { id: string; value: number };
-  formattedValue: string;
-  geometry: { type: string; coordinates: [] };
-  id: LondonBoroughs;
-  label: string;
-  properties: { name: string; empty: number; region: string };
-  type: string;
-  value: number;
-};
-
 export default function LondonGraph() {
   const [data, setData] = useState<null | any>(null);
   const [featuresArray, setFeaturesArray] = useState<undefined | any[]>(

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./MultiText.scss";
 import { useBoroughStore } from "../../../store";
+import Chip from "@mui/material/Chip";
 
 interface MultiTextProps {
   headline: string;
@@ -18,7 +19,10 @@ export default function MultiText({ headline, showText }: MultiTextProps) {
   console.log(borough);
   return (
     <section className="multitext">
-      <strong>{headline}</strong>
+      <div className="multitext__headline-wrap">
+        <strong>{headline}</strong>
+        <Chip label={borough} />
+      </div>
       {showTextBool && (
         <div className="multitext__show-text">
           <p className="multitext__text">{showText}</p>
