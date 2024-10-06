@@ -4,6 +4,20 @@ import { useEffect, useState } from "react";
 import emptyData from "../../data/total-empty-2023.json";
 import { feature } from "topojson-client";
 import londonTopo from "../../data/topo_lad.json";
+import { useBoroughStore } from "../../store";
+import { LondonBoroughs } from "../../types/util";
+
+type EventObject = {
+  color: string;
+  data: { id: string; value: number };
+  formattedValue: string;
+  geometry: { type: string; coordinates: [] };
+  id: LondonBoroughs;
+  label: string;
+  properties: { name: string; empty: number; region: string };
+  type: string;
+  value: number;
+};
 
 export default function LondonGraph() {
   const [data, setData] = useState<null | any>(null);
@@ -14,6 +28,8 @@ export default function LondonGraph() {
   const projectionY = 60.9;
 
   const [height, setHeight] = useState(750); // Default height
+
+  const { setBorough, borough } = useBoroughStore();
 
   useEffect(() => {
     const screenHeight = screen.height;
@@ -49,9 +65,15 @@ export default function LondonGraph() {
         );
         console.log(londonArray);
         setFeaturesArray(londonArray);
-        const dataArray = londonArray.map((borough) => {
-          return { id: borough.id, value: borough.properties.empty };
-        });
+        const dataArray: { id: LondonBoroughs; value: number }[] =
+          londonArray.map(
+            (borough: {
+              id: LondonBoroughs;
+              properties: { empty: number };
+            }) => {
+              return { id: borough.id, value: borough.properties.empty };
+            }
+          );
         setData(dataArray);
       }
     };
@@ -79,6 +101,7 @@ export default function LondonGraph() {
     return;
   }
 
+  console.log(borough);
   return (
     <section className="london-graph" style={{ height: height }}>
       <ResponsiveChoropleth
@@ -99,6 +122,7 @@ export default function LondonGraph() {
         borderColor="#D8F7D9"
         onClick={(event) => {
           console.log(event);
+          setBorough(event.data.id);
         }}
         legends={[
           {

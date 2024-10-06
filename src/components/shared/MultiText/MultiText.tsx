@@ -1,23 +1,20 @@
 import { useState } from "react";
-import { LondonBoroughs } from "../../../types/util";
 import "./MultiText.scss";
+import { useBoroughStore } from "../../../store";
 
 interface MultiTextProps {
   headline: string;
   showText: string;
-  borough?: LondonBoroughs;
 }
 
-export default function MultiText({
-  headline,
-  showText,
-  borough,
-}: MultiTextProps) {
+export default function MultiText({ headline, showText }: MultiTextProps) {
   const [showTextBool, setShowTextBool] = useState<boolean>(false);
   // should have a headline
   // show more text
   // show / hide button
   // should show data based on borough
+
+  const { borough } = useBoroughStore();
   console.log(borough);
   return (
     <section className="multitext">
@@ -28,12 +25,22 @@ export default function MultiText({
         </div>
       )}
       <div className="multitext__actions">
-        <button
-          onClick={() => setShowTextBool(true)}
-          className="multitext__action"
-        >
-          Show more
-        </button>
+        {!showTextBool && (
+          <button
+            onClick={() => setShowTextBool(true)}
+            className="multitext__action"
+          >
+            Show more
+          </button>
+        )}
+        {showTextBool && (
+          <button
+            onClick={() => setShowTextBool(false)}
+            className="multitext__action"
+          >
+            Show less
+          </button>
+        )}
         <button onClick={() => {}} className="multitext__action">
           Share
         </button>
