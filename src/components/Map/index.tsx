@@ -1,5 +1,5 @@
+import LondonGraph from "../LondonGraph/LondonGraph";
 import SectionHeader from "../shared/SectionHeader/SectionHeader";
-import MapChart from "./MapChart/MapChart";
 
 export default function MapIndex() {
   return (
@@ -8,7 +8,7 @@ export default function MapIndex() {
         header="Vacancy Map"
         subheader="The number of empty homes per borough"
       />
-      <MapChart />
+      <LondonGraph />
       <p>clicky click click</p>
     </section>
   );
