@@ -22,7 +22,9 @@ export default function HomepageBox() {
       <ContentBox>
         <TitleBlock />
       </ContentBox>
-      <MapIndex />
+      <ContentBox>
+        <MapIndex />
+      </ContentBox>
       <MultiText headline="This is a tester" showText="Show text if possible" />
       {/* Key Facts Section */}
     </MainBox>

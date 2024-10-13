@@ -5,8 +5,8 @@ import { PropsWithChildren } from "react";
 const SectionBox = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
-  gap: "0.625rem",
+  alignItems: "flex-start",
+  gap: "1rem",
 }));
 
 export default function ContentBox({ children }: PropsWithChildren) {
