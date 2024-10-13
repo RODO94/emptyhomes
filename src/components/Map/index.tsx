@@ -9,7 +9,6 @@ export default function MapIndex() {
         subheader="The number of empty homes per borough"
       />
       <LondonGraph />
-      <p>clicky click click</p>
     </section>
   );
 }
