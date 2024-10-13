@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import "./SectionHeader.scss";
 
 type SectionHeaderProps = { header: string; subheader: string };
@@ -5,12 +6,18 @@ type SectionHeaderProps = { header: string; subheader: string };
 export default function SectionHeader(props: SectionHeaderProps) {
   return (
     <div className="sectionheader">
-      <h2 className="sectionheader__head sectionheader__head--sub">
+      <Typography
+        variant="h4"
+        className="sectionheader__head sectionheader__head--sub"
+      >
         {props.subheader}
-      </h2>
-      <h2 className="sectionheader__head sectionheader__head--main">
+      </Typography>
+      <Typography
+        variant="h3"
+        className="sectionheader__head sectionheader__head--main"
+      >
         {props.header}
-      </h2>
+      </Typography>
     </div>
   );
 }
