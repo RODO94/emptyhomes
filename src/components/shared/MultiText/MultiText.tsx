@@ -16,7 +16,7 @@ export default function MultiText({ headline, showText }: MultiTextProps) {
   // should show data based on borough
 
   const { borough } = useBoroughStore();
-  console.log(borough);
+
   return (
     <section className="multitext">
       <div className="multitext__headline-wrap">
