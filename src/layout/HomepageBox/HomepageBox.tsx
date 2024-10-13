@@ -13,7 +13,6 @@ const MainBox = styled(Box)(() => ({
   flexDirection: "column",
   justifyContent: "center",
   gap: "3rem",
-  maxWidth: "800px",
   width: "100%",
   marginTop: "5rem",
 }));
