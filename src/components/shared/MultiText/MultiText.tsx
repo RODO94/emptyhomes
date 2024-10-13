@@ -2,11 +2,19 @@ import { useState } from "react";
 import "./MultiText.scss";
 import { useBoroughStore } from "../../../store";
 import Chip from "@mui/material/Chip";
+import { styled } from "@mui/material";
 
 interface MultiTextProps {
   headline: string;
   showText: string;
 }
+
+export const BoroughChip = styled(Chip)((theme) => ({
+  fontFamily: '"Montserrat", system-ui, Avenir, Helvetica, Arial, sans-serif;',
+  fontWeight: 700,
+  fontSize: "0.75rem",
+  fontVariant: "all-small-caps",
+}));
 
 export default function MultiText({ headline, showText }: MultiTextProps) {
   const [showTextBool, setShowTextBool] = useState<boolean>(false);

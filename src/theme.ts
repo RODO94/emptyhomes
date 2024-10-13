@@ -1,62 +1,97 @@
-import { ThemeOptions } from "@mui/material"
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { TypographyOptions } from "@mui/material/styles/createTypography";
 
-const getThemeOptions = (): ThemeOptions => {
-
-const themeOptions: ThemeOptions = {
-    // Set default spacing unit to match GOV.UK
-    spacing: 10,
-    typography: {
-      fontFamily: "'Inter', Arial, sans-serif",
-      h1: {
-        fontSize: "3rem",
-        letterSpacing: SPACING_TIGHT,
-        fontWeight: FONT_WEIGHT_BOLD,
-      },
-      h2: {
-        fontSize: "2.25rem",
-        letterSpacing: SPACING_TIGHT,
-        fontWeight: FONT_WEIGHT_BOLD,
-      },
-      h3: {
-        fontSize: "1.5rem",
-        fontWeight: FONT_WEIGHT_BOLD,
-      },
-      h4: {
-        fontSize: "1.188rem",
-        fontWeight: FONT_WEIGHT_SEMI_BOLD,
-      },
-      h5: {
-        fontSize: "1rem",
-        fontWeight: FONT_WEIGHT_SEMI_BOLD,
-      },
-      h6: {
-        fontSize: "1rem",
-        fontWeight: FONT_WEIGHT_SEMI_BOLD,
-      },
-      subtitle1: {
-        fontSize: "1.375rem",
-        lineHeight: LINE_HEIGHT_BASE,
-        color: palette.text.secondary,
-      },
-      subtitle2: {
-        fontSize: "1.188rem",
-        lineHeight: LINE_HEIGHT_BASE,
-        color: palette.text.secondary,
-      },
-      body1: {
-        fontSize: "1.188rem",
-        lineHeight: LINE_HEIGHT_BASE,
-      },
-      body2: {
-        fontSize: "1rem",
-      },
-      body3: {
-        fontSize: "0.913rem",
-      },
-      data: {
-        fontFamily: '"Source Code Pro", monospace',
-      },
-    },
-
+// Define custom breakpoints
+declare module "@mui/material/styles" {
+  interface BreakpointOverrides {
+    xs: false;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: false;
+  }
 }
-return themeOptions}
+
+// Define your color palette
+const palette = {
+  primary: {
+    main: "#242424",
+    light: "#42a5f5",
+    dark: "#1565c0",
+    contrastText: "#ffffff",
+  },
+  secondary: {
+    main: "#10403C",
+    light: "#ba68c8",
+    dark: "#7b1fa2",
+    contrastText: "#ffffff",
+    background: "#BFE3E0",
+  },
+};
+
+// Define your typography
+const typography: TypographyOptions = {
+  fontFamily: [
+    "Montserrat",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    '"Segoe UI"',
+    "Roboto",
+    '"Helvetica Neue"',
+    "Arial",
+    "sans-serif",
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+  ].join(","),
+  h1: {
+    fontSize: "6rem",
+    fontWeight: 700,
+    color: palette.primary.main,
+  },
+  h2: {
+    fontSize: "1.5rem",
+    fontWeight: 400,
+    color: palette.primary.main,
+  },
+  h3: {
+    fontSize: "2rem",
+    fontWeight: 600,
+    color: palette.primary.main,
+  },
+  h4: {
+    fontSize: "1.9rem",
+    fontWeight: 200,
+  },
+  body1: {
+    fontSize: "1rem",
+    fontWeight: 300,
+  },
+  body2: {
+    fontSize: "0.625rem",
+    fontWeight: 400,
+    fontVariant: "all-small-caps",
+    color: palette.secondary.main,
+  },
+  // Add more typography styles as needed
+};
+
+let theme = createTheme({
+  breakpoints: {
+    values: {
+      sm: 375,
+      md: 768,
+      lg: 1280,
+    },
+  },
+  palette,
+  typography,
+});
+
+// Make typography responsive
+theme = responsiveFontSizes(theme, {
+  breakpoints: ["sm", "md", "lg"],
+  factor: 2,
+});
+
+export default theme;
