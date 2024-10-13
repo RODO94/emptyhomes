@@ -1,11 +1,15 @@
+import { ThemeProvider } from "@emotion/react";
 import "./App.scss";
 import Homepage from "./pages/Homepage/Homepage";
+import theme from "./theme";
 
 function App() {
   return (
-    <main>
-      <Homepage />
-    </main>
+    <ThemeProvider theme={theme}>
+      <main>
+        <Homepage />
+      </main>
+    </ThemeProvider>
   );
 }
 
