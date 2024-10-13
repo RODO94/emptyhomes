@@ -1,17 +1,6 @@
 export const emptyData = [
   {
     "": "",
-    region: "Region",
-    localAuthority: "Local Authority",
-    "2nds": "Total",
-    empty: "Total",
-    exemptEH: "",
-    outOfUse: "",
-    __3: "",
-    __4: "Total:",
-  },
-  {
-    "": "",
     region: "ENG",
     localAuthority: "England",
     "2nds": 263318,
@@ -20,17 +9,6 @@ export const emptyData = [
     outOfUse: "",
     __3: "",
     __4: 961944,
-  },
-  {
-    "": "",
-    region: "",
-    localAuthority: "",
-    "2nds": "",
-    empty: "",
-    exemptEH: "",
-    outOfUse: "",
-    __3: "",
-    __4: "",
   },
   {
     "": "",

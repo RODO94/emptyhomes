@@ -10,3 +10,14 @@ export const findSceneSettinData = (activeBorough: string) => {
   );
   return sceneObj;
 };
+
+export const findLondonSceneSettinData = () => {
+  let empties = 0;
+  let seconds = 0;
+  const emptyArray = emptyData.filter((council) => council.region === "L");
+  emptyArray.forEach((council) => {
+    empties = empties + council.empty;
+    seconds = seconds + council["2nds"];
+  });
+  return { empty: empties, "2nds": seconds };
+};
