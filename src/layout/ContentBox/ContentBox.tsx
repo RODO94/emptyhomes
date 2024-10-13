@@ -7,6 +7,7 @@ const SectionBox = styled(Box)(() => ({
   flexDirection: "column",
   alignItems: "flex-start",
   gap: "1rem",
+  width: "100%",
 }));
 
 export default function ContentBox({ children }: PropsWithChildren) {

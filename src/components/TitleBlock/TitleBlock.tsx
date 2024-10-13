@@ -27,6 +27,11 @@ export default function TitleBlock() {
         Group to understand the affect of vacant homes on our communities and on
         the way we live our lives.{" "}
       </Typography>
+      <Typography variant="body1">
+        We are particularly interested in the ways different public datasets can
+        give us an understanding of how long term strategic decision making can
+        enable gentrification, homelessness, and inequality
+      </Typography>
     </>
   );
 }

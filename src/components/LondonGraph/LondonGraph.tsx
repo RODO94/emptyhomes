@@ -13,15 +13,15 @@ export default function LondonGraph() {
     undefined
   );
   const [projectionScale, setProjectionScale] = useState<number>(45000);
-  const projectionY = 60.9;
+  const projectionY = 61;
 
   const [height, setHeight] = useState(750); // Default height
 
-  const { setBorough, borough } = useBoroughStore();
+  const { setBorough } = useBoroughStore();
 
   useEffect(() => {
     const screenHeight = screen.height;
-    const newHeight = screenHeight * 0.7;
+    const newHeight = screenHeight * 0.6;
     setHeight(newHeight);
     setProjectionScale(newHeight / 0.0173753555);
   }, []);
@@ -89,7 +89,6 @@ export default function LondonGraph() {
     return;
   }
 
-  console.log(borough);
   return (
     <section className="london-graph" style={{ height: height }}>
       <ResponsiveChoropleth
@@ -97,7 +96,7 @@ export default function LondonGraph() {
         features={featuresArray}
         colors="blues"
         margin={{ top: 8, bottom: 16, left: 16, right: 0 }}
-        domain={[0, 3000]}
+        domain={[0, 5000]}
         unknownColor="#666666"
         label="properties.name"
         valueFormat=",.2r"
