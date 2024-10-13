@@ -4,6 +4,7 @@ import MultiText from "../../components/shared/MultiText/MultiText";
 import TitleBlock from "../../components/TitleBlock/TitleBlock";
 import "./HomepageBox.scss";
 import { styled } from "@mui/material";
+import ContentBox from "../ContentBox/ContentBox";
 
 const MainBox = styled(Box)(({ theme }) => ({
   margin: "3rem auto",
@@ -18,7 +19,9 @@ const MainBox = styled(Box)(({ theme }) => ({
 export default function HomepageBox() {
   return (
     <MainBox>
-      <TitleBlock />
+      <ContentBox>
+        <TitleBlock />
+      </ContentBox>
       <MapIndex />
       <MultiText headline="This is a tester" showText="Show text if possible" />
       {/* Key Facts Section */}
