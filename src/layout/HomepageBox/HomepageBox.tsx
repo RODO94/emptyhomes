@@ -1,14 +1,13 @@
 import Box from "@mui/material/Box";
 import MapIndex from "../../components/Map";
-import MultiText from "../../components/shared/MultiText/MultiText";
 import TitleBlock from "../../components/TitleBlock/TitleBlock";
 import "./HomepageBox.scss";
 import { styled } from "@mui/material";
 import ContentBox from "../ContentBox/ContentBox";
 import SettingScene from "../../components/SettingScene/SettingScene";
 import DoubleGraphBox from "../DoubleGraphBox/DoubleGraphBox";
-import LondonGraph from "../../components/LondonGraph/LondonGraph";
 import MapChart from "../../components/Map/MapChart/MapChart";
+import ComparisonSection from "../../components/ComparisonSection/ComparisonSection";
 
 const MainBox = styled(Box)(() => ({
   margin: "3rem auto",
@@ -33,12 +32,7 @@ export default function HomepageBox() {
         <SettingScene />
       </ContentBox>
       <ContentBox>
-        <DoubleGraphBox
-          graphOne={<MapChart fillColour="Greens" target="outOfUse" />}
-          captionOne="First graph of the observable HQ style"
-          graphTwo={<MapChart fillColour="Purples" target="2nds" />}
-          captionTwo="Second graph of the observable HQ style"
-        />
+        <ComparisonSection />
       </ContentBox>
     </MainBox>
   );

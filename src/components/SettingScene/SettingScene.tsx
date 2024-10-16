@@ -44,8 +44,8 @@ export default function SettingScene() {
         header="Setting the Scene"
         subheader="What is important to know"
       />
-      <List sx={{ listStyle: "inside", listStyleType: "disc" }}>
-        <ListItem>
+      <List>
+        <ListItem sx={{ alignItems: "baseline" }}>
           <BulletPoint
             color="primary"
             sx={{ fontSize: "8px", minWidth: "24px" }}
@@ -57,7 +57,7 @@ export default function SettingScene() {
             <strong>{scene.empty || 0}</strong>
           </Typography>
         </ListItem>
-        <ListItem>
+        <ListItem sx={{ alignItems: "baseline" }}>
           <BulletPoint
             color="primary"
             sx={{ fontSize: "8px", minWidth: "24px" }}
@@ -69,7 +69,7 @@ export default function SettingScene() {
             <strong>{scene["2nds"] || 0}</strong>
           </Typography>
         </ListItem>
-        <ListItem>
+        <ListItem sx={{ alignItems: "baseline" }}>
           <BulletPoint
             color="primary"
             sx={{ fontSize: "8px", minWidth: "24px" }}
