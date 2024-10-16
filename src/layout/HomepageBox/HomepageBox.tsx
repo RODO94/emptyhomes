@@ -5,9 +5,8 @@ import "./HomepageBox.scss";
 import { styled } from "@mui/material";
 import ContentBox from "../ContentBox/ContentBox";
 import SettingScene from "../../components/SettingScene/SettingScene";
-import DoubleGraphBox from "../DoubleGraphBox/DoubleGraphBox";
-import MapChart from "../../components/Map/MapChart/MapChart";
 import ComparisonSection from "../../components/ComparisonSection/ComparisonSection";
+import BoroughSelector from "../../components/BoroughSelector/BoroughSelector";
 
 const MainBox = styled(Box)(() => ({
   margin: "3rem auto",
@@ -33,6 +32,9 @@ export default function HomepageBox() {
       </ContentBox>
       <ContentBox>
         <ComparisonSection />
+      </ContentBox>
+      <ContentBox>
+        <BoroughSelector />
       </ContentBox>
     </MainBox>
   );
