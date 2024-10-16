@@ -13,7 +13,6 @@ const MainBox = styled(Box)(() => ({
   flexDirection: "column",
   justifyContent: "center",
   gap: "3rem",
-  maxWidth: "800px",
   width: "100%",
   marginTop: "5rem",
 }));
@@ -27,7 +26,9 @@ export default function HomepageBox() {
       <ContentBox>
         <MapIndex />
       </ContentBox>
-      <SettingScene />
+      <ContentBox>
+        <SettingScene />
+      </ContentBox>
       <MultiText headline="This is a tester" showText="Show text if possible" />
       {/* Key Facts Section */}
     </MainBox>

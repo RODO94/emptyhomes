@@ -99,7 +99,7 @@ export default function LondonGraph() {
         domain={[0, 5000]}
         unknownColor="#666666"
         label="properties.name"
-        valueFormat=",.2r"
+        valueFormat=",.4r"
         projectionTranslation={[0.57, projectionY]}
         projectionRotation={[0, 0, 0]}
         projectionScale={projectionScale}

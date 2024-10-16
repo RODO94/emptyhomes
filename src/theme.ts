@@ -50,12 +50,12 @@ const typography: TypographyOptions = {
     color: palette.primary.main,
   },
   h2: {
-    fontSize: "1.5rem",
+    fontSize: "2rem",
     fontWeight: 400,
     color: palette.primary.main,
   },
   h3: {
-    fontSize: "2rem",
+    fontSize: "2.5rem",
     fontWeight: 600,
     color: palette.primary.main,
   },
@@ -68,12 +68,10 @@ const typography: TypographyOptions = {
     fontWeight: 300,
   },
   body2: {
-    fontSize: "0.625rem",
+    fontSize: "1.25rem",
     fontWeight: 400,
-    fontVariant: "all-small-caps",
-    color: palette.secondary.main,
+    color: palette.primary.main,
   },
-  // Add more typography styles as needed
 };
 
 let theme = createTheme({
