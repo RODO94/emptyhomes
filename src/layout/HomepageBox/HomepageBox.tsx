@@ -34,9 +34,9 @@ export default function HomepageBox() {
       </ContentBox>
       <ContentBox>
         <DoubleGraphBox
-          graphOne={<MapChart fillColour="Greens" />}
+          graphOne={<MapChart fillColour="Greens" target="outOfUse" />}
           captionOne="First graph of the observable HQ style"
-          graphTwo={<MapChart fillColour="Purples" />}
+          graphTwo={<MapChart fillColour="Purples" target="2nds" />}
           captionTwo="Second graph of the observable HQ style"
         />
       </ContentBox>

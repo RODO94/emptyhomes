@@ -8,8 +8,10 @@ import { useBoroughStore } from "../../../store";
 
 export default function MapChart({
   fillColour,
+  target,
 }: {
   fillColour: Plot.ColorScheme;
+  target: "empty" | "2nds" | "outOfUse";
 }) {
   const plotRef = useRef(null);
 
@@ -27,16 +29,42 @@ export default function MapChart({
           (data) => data.localAuthority === borough.properties.LAD13NM
         );
 
-        return {
-          type: borough.type,
-          geometry: borough.geometry,
-          id: borough.properties.LAD13NM,
-          properties: {
-            name: borough.properties.LAD13NM,
-            empty: findObj?.empty,
-            region: findObj?.region,
-          },
-        };
+        switch (target) {
+          case "empty":
+            return {
+              type: borough.type,
+              geometry: borough.geometry,
+              id: borough.properties.LAD13NM,
+              properties: {
+                name: borough.properties.LAD13NM,
+                empty: findObj?.empty,
+                region: findObj?.region,
+              },
+            };
+
+          case "2nds":
+            return {
+              type: borough.type,
+              geometry: borough.geometry,
+              id: borough.properties.LAD13NM,
+              properties: {
+                name: borough.properties.LAD13NM,
+                empty: findObj && findObj["2nds"],
+                region: findObj?.region,
+              },
+            };
+          case "outOfUse":
+            return {
+              type: borough.type,
+              geometry: borough.geometry,
+              id: borough.properties.LAD13NM,
+              properties: {
+                name: borough.properties.LAD13NM,
+                empty: findObj?.outOfUse,
+                region: findObj?.region,
+              },
+            };
+        }
       });
 
       const londonArray = mapArray.filter(
