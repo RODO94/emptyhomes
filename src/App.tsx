@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material";
 import "./App.scss";
 import Homepage from "./pages/Homepage/Homepage";
 import theme from "./theme";
