@@ -2,22 +2,31 @@ import { MenuItem, Select } from "@mui/material";
 import { useBoroughStore } from "../../store";
 import { emptyData } from "../../data/empties";
 import { useFormik } from "formik";
+import { useEffect } from "react";
 
 export default function BoroughSelector() {
   const { borough, setBorough } = useBoroughStore();
   const formik = useFormik({
     initialValues: { borough },
-    onSubmit: (value) => setBorough(value.borough),
+    onSubmit: () => {},
   });
 
-  console.log(borough);
+  useEffect(() => {
+    setBorough(formik.values.borough);
+  }, [formik.values.borough, setBorough]);
+
   return (
     <Select
       label="Boroughs"
+      name="borough"
+      id="borough"
       value={formik.values.borough}
-      onChange={formik.submitForm}
+      onChange={(e) => {
+        formik.handleChange(e);
+      }}
       fullWidth
     >
+      <MenuItem value={"all boroughs"}>All boroughs</MenuItem>
       {emptyData
         .filter((authority) => authority.region === "L")
         .map((borough) => (
