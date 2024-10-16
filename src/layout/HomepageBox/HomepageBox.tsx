@@ -1,11 +1,13 @@
 import Box from "@mui/material/Box";
 import MapIndex from "../../components/Map";
-import MultiText from "../../components/shared/MultiText/MultiText";
 import TitleBlock from "../../components/TitleBlock/TitleBlock";
 import "./HomepageBox.scss";
 import { styled } from "@mui/material";
 import ContentBox from "../ContentBox/ContentBox";
 import SettingScene from "../../components/SettingScene/SettingScene";
+import DoubleGraphBox from "../DoubleGraphBox/DoubleGraphBox";
+import MapChart from "../../components/Map/MapChart/MapChart";
+import ComparisonSection from "../../components/ComparisonSection/ComparisonSection";
 
 const MainBox = styled(Box)(() => ({
   margin: "3rem auto",
@@ -29,8 +31,9 @@ export default function HomepageBox() {
       <ContentBox>
         <SettingScene />
       </ContentBox>
-      <MultiText headline="This is a tester" showText="Show text if possible" />
-      {/* Key Facts Section */}
+      <ContentBox>
+        <ComparisonSection />
+      </ContentBox>
     </MainBox>
   );
 }

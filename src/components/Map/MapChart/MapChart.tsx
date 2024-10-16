@@ -3,15 +3,23 @@ import { useEffect, useRef, useState } from "react";
 import londonFeatures from "../../../features.json";
 import emptyData from "../../../data/total-empty-2023.json";
 import londonTopo from "../../../data/topo_lad.json";
-import * as d3 from "d3";
 import { feature } from "topojson-client";
+import { useBoroughStore } from "../../../store";
 
-export default function MapChart() {
+export default function MapChart({
+  fillColour,
+  target,
+}: {
+  fillColour: Plot.ColorScheme;
+  target: "empty" | "2nds" | "outOfUse";
+}) {
   const plotRef = useRef(null);
 
   const [featuresArray, setFeaturesArray] = useState<undefined | any>(
     londonFeatures
   );
+
+  const { borough } = useBoroughStore();
 
   useEffect(() => {
     const geoJsonData = feature(londonTopo, londonTopo.objects.lad);
@@ -21,21 +29,58 @@ export default function MapChart() {
           (data) => data.localAuthority === borough.properties.LAD13NM
         );
 
-        return {
-          type: borough.type,
-          geometry: borough.geometry,
-          id: borough.properties.LAD13NM,
-          properties: {
-            name: borough.properties.LAD13NM,
-            empty: findObj?.empty,
-            region: findObj?.region,
-          },
-        };
+        switch (target) {
+          case "empty":
+            return {
+              type: borough.type,
+              geometry: borough.geometry,
+              id: borough.properties.LAD13NM,
+              properties: {
+                name: borough.properties.LAD13NM,
+                empty: findObj?.empty,
+                region: findObj?.region,
+              },
+            };
+
+          case "2nds":
+            return {
+              type: borough.type,
+              geometry: borough.geometry,
+              id: borough.properties.LAD13NM,
+              properties: {
+                name: borough.properties.LAD13NM,
+                empty: findObj && findObj["2nds"],
+                region: findObj?.region,
+              },
+            };
+          case "outOfUse":
+            return {
+              type: borough.type,
+              geometry: borough.geometry,
+              id: borough.properties.LAD13NM,
+              properties: {
+                name: borough.properties.LAD13NM,
+                empty: findObj?.outOfUse,
+                region: findObj?.region,
+              },
+            };
+        }
       });
 
       const londonArray = mapArray.filter(
         (authority) => authority.properties.region === "L"
       );
+
+      if (borough !== "all boroughs") {
+        const boroughArray = londonArray.filter(
+          (authority) => authority.properties.name === borough
+        );
+
+        return setFeaturesArray({
+          type: "FeatureCollection",
+          features: boroughArray,
+        });
+      }
 
       setFeaturesArray({
         type: "FeatureCollection",
@@ -44,7 +89,7 @@ export default function MapChart() {
     };
 
     generateData();
-  }, []);
+  }, [borough]);
 
   useEffect(() => {
     // Create the plot
@@ -69,7 +114,7 @@ export default function MapChart() {
       color: {
         type: "linear", // Quantize for color buckets
         domain: [0, 5000], // Adjust domain based on your data
-        scheme: "Reds",
+        scheme: fillColour,
         legend: true, // Show legend
       },
 
