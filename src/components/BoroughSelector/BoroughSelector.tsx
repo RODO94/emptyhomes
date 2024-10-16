@@ -1,4 +1,4 @@
-import { MenuItem, Select } from "@mui/material";
+import { Box, Chip, MenuItem, Select, Typography } from "@mui/material";
 import { useBoroughStore } from "../../store";
 import { emptyData } from "../../data/empties";
 import { useFormik } from "formik";
@@ -16,24 +16,66 @@ export default function BoroughSelector() {
   }, [formik.values.borough, setBorough]);
 
   return (
-    <Select
-      label="Boroughs"
-      name="borough"
-      id="borough"
-      value={formik.values.borough}
-      onChange={(e) => {
-        formik.handleChange(e);
+    <Box
+      sx={{
+        position: "sticky",
+        top: "3rem",
+        padding: "0 2rem",
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        mt: "32rem",
+        width: "100%",
       }}
-      fullWidth
     >
-      <MenuItem value={"all boroughs"}>All boroughs</MenuItem>
-      {emptyData
-        .filter((authority) => authority.region === "L")
-        .map((borough) => (
-          <MenuItem value={borough.localAuthority}>
-            {borough.localAuthority}
-          </MenuItem>
-        ))}
-    </Select>
+      <div>
+        <Typography variant="body1">
+          Select a borough to refine content on the page
+        </Typography>
+        <Select
+          name="borough"
+          id="borough"
+          value={borough}
+          onChange={(e) => {
+            formik.handleChange(e);
+          }}
+          fullWidth
+        >
+          <MenuItem value={"all boroughs"}>All boroughs</MenuItem>
+          {emptyData
+            .filter((authority) => authority.region === "L")
+            .map((borough) => (
+              <MenuItem value={borough.localAuthority}>
+                {borough.localAuthority}
+              </MenuItem>
+            ))}
+        </Select>
+      </div>
+      <div>
+        <Typography>Current Selection</Typography>
+        {borough !== "all boroughs" && (
+          <Chip
+            component={Typography}
+            sx={{
+              width: "100%",
+              padding: "4px",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              "& .MuiChip-label": {
+                typography: "button",
+              },
+              backgroundColor: "#E3BFDB",
+              mt: "0.5rem",
+            }}
+            label={borough}
+            onDelete={() => {
+              formik.setFieldValue("borough", "all boroughs");
+              setBorough("all boroughs");
+            }}
+          />
+        )}
+      </div>
+    </Box>
   );
 }

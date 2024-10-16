@@ -1,16 +1,24 @@
 import { Box, styled } from "@mui/material";
 import CentralPanel from "../CentralPanel/CentralPanel";
 import LeftPanel from "../LeftPanel/LeftPanel";
-import RightPanel from "../RightPanel/RightPanel";
-import "./MainContainer.scss";
+import BoroughSelector from "../../components/BoroughSelector/BoroughSelector";
 
 const MainBox = styled(Box)(() => ({
   display: "flex",
   flexDirection: "row",
+  padding: "3rem 1rem 1.5rem 1rem",
+  justifyContent: "center",
+  alignItems: "flex-start",
+  gap: "0.5rem",
+}));
+export const SidePanel = styled(Box)(() => ({
+  display: "flex",
+  flexDirection: "column",
   padding: "3rem 0rem 1.5rem 0rem",
   justifyContent: "center",
   alignItems: "flex-start",
   gap: "0.5rem",
+  width: "100%",
 }));
 
 export default function MainContainer() {
@@ -19,7 +27,7 @@ export default function MainContainer() {
       <MainBox>
         <LeftPanel />
         <CentralPanel />;
-        <RightPanel />
+        <BoroughSelector />
       </MainBox>
     </main>
   );

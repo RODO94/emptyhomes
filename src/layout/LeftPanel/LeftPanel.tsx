@@ -1,3 +1,5 @@
+import { SidePanel } from "../MainContainer/MainContainer";
+
 export default function LeftPanel() {
-  return <></>;
+  return <SidePanel></SidePanel>;
 }

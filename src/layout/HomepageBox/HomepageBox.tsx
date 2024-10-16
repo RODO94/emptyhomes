@@ -6,7 +6,6 @@ import { styled } from "@mui/material";
 import ContentBox from "../ContentBox/ContentBox";
 import SettingScene from "../../components/SettingScene/SettingScene";
 import ComparisonSection from "../../components/ComparisonSection/ComparisonSection";
-import BoroughSelector from "../../components/BoroughSelector/BoroughSelector";
 
 const MainBox = styled(Box)(() => ({
   margin: "3rem auto",
@@ -32,9 +31,6 @@ export default function HomepageBox() {
       </ContentBox>
       <ContentBox>
         <ComparisonSection />
-      </ContentBox>
-      <ContentBox>
-        <BoroughSelector />
       </ContentBox>
     </MainBox>
   );
