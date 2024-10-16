@@ -3,15 +3,21 @@ import { useEffect, useRef, useState } from "react";
 import londonFeatures from "../../../features.json";
 import emptyData from "../../../data/total-empty-2023.json";
 import londonTopo from "../../../data/topo_lad.json";
-import * as d3 from "d3";
 import { feature } from "topojson-client";
+import { useBoroughStore } from "../../../store";
 
-export default function MapChart() {
+export default function MapChart({
+  fillColour,
+}: {
+  fillColour: Plot.ColorScheme;
+}) {
   const plotRef = useRef(null);
 
   const [featuresArray, setFeaturesArray] = useState<undefined | any>(
     londonFeatures
   );
+
+  const { borough } = useBoroughStore();
 
   useEffect(() => {
     const geoJsonData = feature(londonTopo, londonTopo.objects.lad);
@@ -37,6 +43,17 @@ export default function MapChart() {
         (authority) => authority.properties.region === "L"
       );
 
+      if (borough !== "all boroughs") {
+        const boroughArray = londonArray.filter(
+          (authority) => authority.properties.name === borough
+        );
+
+        return setFeaturesArray({
+          type: "FeatureCollection",
+          features: boroughArray,
+        });
+      }
+
       setFeaturesArray({
         type: "FeatureCollection",
         features: londonArray,
@@ -44,7 +61,7 @@ export default function MapChart() {
     };
 
     generateData();
-  }, []);
+  }, [borough]);
 
   useEffect(() => {
     // Create the plot
@@ -69,7 +86,7 @@ export default function MapChart() {
       color: {
         type: "linear", // Quantize for color buckets
         domain: [0, 5000], // Adjust domain based on your data
-        scheme: "Reds",
+        scheme: fillColour,
         legend: true, // Show legend
       },
 
