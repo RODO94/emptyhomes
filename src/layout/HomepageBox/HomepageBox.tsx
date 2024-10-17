@@ -8,13 +8,12 @@ import SettingScene from "../../components/SettingScene/SettingScene";
 import ComparisonSection from "../../components/ComparisonSection/ComparisonSection";
 
 const MainBox = styled(Box)(() => ({
-  margin: "3rem auto",
+  margin: "0rem auto",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   gap: "3rem",
   width: "100%",
-  marginTop: "5rem",
 }));
 
 export default function HomepageBox() {

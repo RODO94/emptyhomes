@@ -24,7 +24,7 @@ export default function BoroughSelector() {
         display: "flex",
         flexDirection: "column",
         gap: "1rem",
-        mt: "32rem",
+        mt: "25rem",
         width: "100%",
       }}
     >

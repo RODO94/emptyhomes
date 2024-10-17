@@ -11,7 +11,6 @@ const CentralBox = styled(Box)(() => ({
   flexDirection: "column",
   justifyContent: "center",
   gap: "3rem",
-  marginTop: "5rem",
 }));
 
 export default function CentralPanel() {
