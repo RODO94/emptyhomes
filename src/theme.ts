@@ -27,6 +27,10 @@ const palette = {
     contrastText: "#ffffff",
     background: "#BFE3E0",
   },
+  accent: {
+    main: "#20BBAE",
+    secondary: "#E3BFDB",
+  },
 };
 
 // Define your typography
@@ -71,6 +75,12 @@ const typography: TypographyOptions = {
     fontSize: "1.25rem",
     fontWeight: 400,
     color: palette.primary.main,
+  },
+  button: {
+    fontSize: "0.75rem",
+    fontWeight: 700,
+    color: palette.primary.main,
+    textTransform: "uppercase",
   },
 };
 

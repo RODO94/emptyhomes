@@ -5,8 +5,6 @@ import "./HomepageBox.scss";
 import { styled } from "@mui/material";
 import ContentBox from "../ContentBox/ContentBox";
 import SettingScene from "../../components/SettingScene/SettingScene";
-import DoubleGraphBox from "../DoubleGraphBox/DoubleGraphBox";
-import MapChart from "../../components/Map/MapChart/MapChart";
 import ComparisonSection from "../../components/ComparisonSection/ComparisonSection";
 
 const MainBox = styled(Box)(() => ({

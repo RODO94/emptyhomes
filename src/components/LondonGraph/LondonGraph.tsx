@@ -51,7 +51,7 @@ export default function LondonGraph() {
         const londonArray = mapArray.filter(
           (authority) => authority.properties.region === "L"
         );
-        console.log(londonArray);
+
         setFeaturesArray(londonArray);
         const dataArray: { id: LondonBoroughs; value: number }[] =
           londonArray.map(
@@ -108,7 +108,6 @@ export default function LondonGraph() {
         borderWidth={0.5}
         borderColor="#D8F7D9"
         onClick={(event) => {
-          console.log(event);
           setBorough(event.data.id);
         }}
         legends={[
@@ -125,9 +124,6 @@ export default function LondonGraph() {
             itemTextColor: "#444444",
             itemOpacity: 0.85,
             symbolSize: 16,
-            onClick: (event) => {
-              console.log(event);
-            },
           },
         ]}
       />
