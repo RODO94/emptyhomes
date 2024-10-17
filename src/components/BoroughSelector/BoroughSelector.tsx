@@ -52,28 +52,30 @@ export default function BoroughSelector() {
         </Select>
       </div>
       <div>
-        <Typography>Current Selection</Typography>
         {borough !== "all boroughs" && (
-          <Chip
-            component={Typography}
-            sx={{
-              width: "100%",
-              padding: "4px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              "& .MuiChip-label": {
-                typography: "button",
-              },
-              backgroundColor: "#E3BFDB",
-              mt: "0.5rem",
-            }}
-            label={borough}
-            onDelete={() => {
-              formik.setFieldValue("borough", "all boroughs");
-              setBorough("all boroughs");
-            }}
-          />
+          <>
+            <Typography>Current Selection</Typography>
+            <Chip
+              component={Typography}
+              sx={{
+                width: "100%",
+                padding: "4px",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                "& .MuiChip-label": {
+                  typography: "button",
+                },
+                backgroundColor: "#E3BFDB",
+                mt: "0.5rem",
+              }}
+              label={borough}
+              onDelete={() => {
+                formik.setFieldValue("borough", "all boroughs");
+                setBorough("all boroughs");
+              }}
+            />
+          </>
         )}
       </div>
     </Box>
